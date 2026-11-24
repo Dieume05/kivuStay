@@ -1,0 +1,79 @@
+KIVUSTAY - XPATH QUERY DOCUMENTATION
+====================================
+
+XML SOURCE: hotels.xml
+PURPOSE: Extracting useful accommodation information
+using XPath expressions and predicates.
+
+QUERY 1: Find hotels with a rating of at least 4.0
+
+XPath:
+/hotels/hotel[@rating >= 4.0]
+
+Explanation:
+Selects all hotels whose rating is greater than or
+equal to 4.0.
+
+QUERY 2: Find hotels located in Gisenyi
+
+XPath:
+/hotels/hotel[location='Gisenyi']
+
+Explanation:
+Selects hotels whose location is exactly Gisenyi.
+
+QUERY 3: Find rooms with a capacity of at least 3 guests
+
+XPath:
+/hotels/hotel/rooms/room[@capacity >= 3]
+
+Explanation:
+Selects rooms that can accommodate three or more guests.
+
+QUERY 4: Find all confirmed bookings
+
+XPath:
+/hotels/hotel/rooms/room/bookings/booking[status='CONFIRMED']
+
+Explanation:
+Selects bookings whose status is CONFIRMED.
+
+QUERY 5: Find available rooms with a price below 100
+
+XPath:
+/hotels/hotel/rooms/room[@status='AVAILABLE'
+and pricePerNight < 100]
+
+Explanation:
+Selects rooms that are available and cost less than
+100 per night.
+EXECUTION RESULTS
+=================
+
+The five XPath expressions were executed successfully
+against the exported hotels.xml document.
+
+Query 1:
+Hotels with rating >= 4.0
+Results: 6 hotels.
+
+Query 2:
+Hotels located in Gisenyi.
+Results: 1 hotel.
+Kivu Paradise Hotel.
+
+Query 3:
+Rooms with capacity >= 3.
+Results: 16 rooms.
+
+Query 4:
+Confirmed bookings.
+Results: 8 bookings.
+
+Query 5:
+Available rooms with price below 100.
+Results: 23 rooms.
+
+CONCLUSION:
+All five XPath queries executed successfully and
+returned matching records from the KivuStay XML export.

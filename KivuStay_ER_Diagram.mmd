@@ -1,0 +1,65 @@
+erDiagram
+    USERS ||--o{ HOTELS : manages
+    USERS ||--o{ BOOKINGS : makes
+    HOTELS ||--o{ ROOM_TYPES : offers
+    HOTELS ||--o{ HOTEL_AMENITIES : has
+    AMENITIES ||--o{ HOTEL_AMENITIES : includes
+    ROOM_TYPES ||--o{ ROOMS : contains
+    ROOMS ||--o{ BOOKINGS : receives
+
+    USERS {
+        int user_id PK
+        varchar full_name
+        varchar email UK
+        varchar password_hash
+        enum role
+        timestamp created_at
+    }
+
+    HOTELS {
+        int hotel_id PK
+        int manager_id FK
+        varchar hotel_name
+        varchar location
+        text description
+        decimal rating
+        varchar image_url
+    }
+
+    AMENITIES {
+        int amenity_id PK
+        varchar amenity_name UK
+    }
+
+    HOTEL_AMENITIES {
+        int hotel_id PK, FK
+        int amenity_id PK, FK
+    }
+
+    ROOM_TYPES {
+        int room_type_id PK
+        int hotel_id FK
+        varchar room_name
+        text description
+        int capacity
+        decimal price_per_night
+    }
+
+    ROOMS {
+        int room_id PK
+        int room_type_id FK
+        varchar room_number
+        enum room_status
+    }
+
+    BOOKINGS {
+        int booking_id PK
+        int user_id FK
+        int room_id FK
+        date check_in
+        date check_out
+        int number_of_guests
+        decimal total_amount
+        enum booking_status
+        timestamp created_at
+    }

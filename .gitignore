@@ -1,0 +1,27 @@
+# Java compiled files
+*.class
+
+# Build outputs
+/build/
+/target/
+
+# Eclipse workspace files
+.metadata/
+.settings/
+.project
+.classpath
+
+# Logs
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+
+# Local database credentials
+.env
+.env.*

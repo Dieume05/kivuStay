@@ -1,0 +1,958 @@
+:root {
+    --navy: #102B35;
+    --teal: #267C78;
+    --teal-dark: #1D625F;
+    --sand: #E9DFCA;
+    --ivory: #F8F7F2;
+    --white: #FFFFFF;
+    --muted: #777F7C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--ivory);
+    color: var(--navy);
+}
+
+/* NAVIGATION */
+
+.navbar {
+    min-height: 88px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    background: var(--ivory);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+}
+
+.logo-icon {
+    width: 39px;
+    height: 39px;
+    background: var(--navy);
+    color: var(--sand);
+    display: grid;
+    place-items: center;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    border-radius: 11px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links a,
+.sign-in {
+    text-decoration: none;
+    color: #586568;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.sign-in:hover {
+    color: var(--teal);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+.register-button {
+    text-decoration: none;
+    color: white;
+    background: var(--navy);
+    padding: 13px 21px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.register-button:hover {
+    background: var(--teal);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 570px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 65px 9%;
+    color: white;
+    background:
+        url("../images/lake-kivu.jpeg") center 52% / cover no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(10, 32, 39, 0.82) 0%,
+        rgba(10, 32, 39, 0.50) 48%,
+        rgba(10, 32, 39, 0.08) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 610px;
+}
+
+.eyebrow {
+    display: block;
+    color: var(--teal);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    margin-bottom: 17px;
+}
+
+.hero .eyebrow {
+    color: var(--sand);
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(48px, 6vw, 76px);
+    line-height: 1.08;
+    font-weight: 400;
+    letter-spacing: -2px;
+}
+
+.hero h1 em {
+    color: var(--sand);
+    font-weight: 400;
+}
+
+.hero-content p {
+    max-width: 440px;
+    margin-top: 22px;
+    color: rgba(255,255,255,0.88);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 32px;
+    padding: 16px 23px;
+    background: var(--sand);
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.hero-button:hover {
+    background: white;
+}
+
+.hero-location {
+    position: absolute;
+    z-index: 1;
+    right: 7%;
+    bottom: 35px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: white;
+}
+
+/* SEARCH */
+
+.search-section {
+    position: relative;
+    z-index: 2;
+    max-width: 1160px;
+    margin: -42px auto 0;
+    padding: 31px 35px;
+    background: white;
+    box-shadow: 0 15px 45px rgba(16,43,53,0.09);
+}
+
+.search-heading h2 {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 24px;
+}
+
+.search-heading .eyebrow {
+    margin-bottom: 9px;
+}
+
+.search-form {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 0.9fr auto;
+    align-items: end;
+    gap: 16px;
+}
+
+.search-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.search-field label {
+    color: #777F7C;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.search-field input,
+.search-field select {
+    width: 100%;
+    min-width: 0;
+    border: none;
+    border-bottom: 1px solid #DADFD9;
+    outline: none;
+    padding: 10px 0;
+    background: white;
+    color: var(--navy);
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.search-field input:focus,
+.search-field select:focus {
+    border-bottom-color: var(--teal);
+}
+
+.search-button {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    background: var(--teal);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.search-button:hover {
+    background: var(--teal-dark);
+}
+
+/* FEATURED STAYS */
+
+.featured-section {
+    max-width: 1160px;
+    margin: 100px auto 90px;
+    padding: 0 20px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.section-heading h2,
+.about-section h2 {
+    font-family: Georgia, serif;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+
+.section-heading p {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.view-all {
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.hotel-card {
+    background: white;
+    overflow: hidden;
+    transition: transform 0.25s ease;
+}
+
+.hotel-card:hover {
+    transform: translateY(-5px);
+}
+
+.hotel-card img {
+    display: block;
+    width: 100%;
+    height: 235px;
+    object-fit: cover;
+}
+
+.hotel-info {
+    padding: 22px;
+}
+
+.hotel-location {
+    color: var(--teal);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.hotel-info h3 {
+    margin-top: 10px;
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.hotel-info p {
+    margin-top: 9px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* DESTINATIONS */
+
+.destinations-section {
+    padding: 75px 7%;
+    background: #F0EFE8;
+}
+
+.destinations-section .section-heading {
+    max-width: 1160px;
+    margin: 0 auto 30px;
+}
+
+.destination-grid {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.destination-card {
+    min-height: 260px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.destination-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        transparent 15%,
+        rgba(10, 32, 39, 0.78)
+    );
+}
+
+.destination-card span,
+.destination-card h3 {
+    position: relative;
+}
+
+.destination-card span {
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.destination-card h3 {
+    margin-top: 8px;
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.rubavu {
+    background-image: url("../images/hotel-gisenyi.jpeg");
+}
+
+.karongi {
+    background-image: url("../images/hotel-kibuye.jpeg");
+}
+
+.goma {
+    background-image: url("../images/hotel-goma.jpeg");
+}
+
+/* ABOUT */
+
+.about-section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 100px 25px;
+    text-align: center;
+}
+
+.about-section h2 {
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* FOOTER */
+
+.footer {
+    min-height: 145px;
+    padding: 35px 7%;
+    background: var(--navy);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    color: white;
+}
+
+.footer-logo .logo-icon {
+    background: var(--sand);
+    color: var(--navy);
+}
+
+.footer p,
+.footer > span {
+    color: #C3CECB;
+    font-size: 11px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1050px) {
+    .navbar {
+        padding: 20px 4%;
+    }
+
+    .nav-links {
+        gap: 17px;
+    }
+
+    .search-section {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .search-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search-button {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 750px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 17px;
+    }
+
+    .nav-actions {
+        gap: 12px;
+    }
+
+    .hero {
+        min-height: 490px;
+        padding: 55px 7%;
+    }
+
+    .hero-location {
+        right: 7%;
+        font-size: 8px;
+    }
+
+    .search-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hotel-grid,
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hotel-card img {
+        height: 250px;
+    }
+
+    .section-heading {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 450px) {
+    .navbar {
+        gap: 18px;
+    }
+
+    .nav-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .search-section {
+        padding: 25px 20px;
+    }
+
+    .search-form {
+        grid-template-columns: 1fr;
+    }
+
+    .search-button {
+        grid-column: auto;
+    }
+
+    .section-heading h2,
+    .about-section h2 {
+        font-size: 30px;
+    }
+}
+/* =================================
+   KIVUSTAY ANIMATIONS
+================================= */
+
+/* 1. Slow hero background movement */
+
+.hero {
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    background-size: cover;
+    background-position: center;
+    animation: heroZoom 18s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+@keyframes heroZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.08);
+    }
+}
+
+/* 2. Hero text entrance */
+
+.hero-content {
+    animation: fadeUp 1.2s ease both;
+}
+
+.hero-location {
+    animation: fadeIn 1.8s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 3. Hotel image hover animation */
+
+.hotel-card img {
+    transition: transform 0.7s ease;
+}
+
+.hotel-card:hover img {
+    transform: scale(1.07);
+}
+
+/* 4. Hotel card appearance */
+
+.hotel-card {
+    animation: fadeUp 0.9s ease both;
+}
+
+.hotel-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.hotel-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* 5. Destination hover animation */
+
+.destination-card {
+    transition: transform 0.4s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-7px);
+}
+
+/* 6. Search interaction */
+
+.search-field input,
+.search-field select {
+    transition: border-color 0.3s ease;
+}
+
+.search-button,
+.hero-button,
+.register-button {
+    transition: background 0.3s ease,
+                transform 0.3s ease;
+}
+
+.search-button:hover,
+.hero-button:hover,
+.register-button:hover {
+    transform: translateY(-3px);
+}
+
+/* 7. Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+/* SCROLL REVEAL ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* =================================
+   PREMIUM HOTEL CARD DESIGN
+================================= */
+
+.hotel-card {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(16, 43, 53, 0.06);
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.hotel-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(16, 43, 53, 0.13);
+}
+
+.hotel-card img {
+    width: 100%;
+    height: 250px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.hotel-card:hover img {
+    transform: scale(1.06);
+}
+
+.hotel-info {
+    padding: 24px 23px 27px;
+    background: #FFFFFF;
+}
+
+.hotel-location {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #267C78;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.hotel-info h3 {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: 400;
+    color: #102B35;
+    margin: 4px 0 10px;
+    transition: color 0.3s ease;
+}
+
+.hotel-card:hover .hotel-info h3 {
+    color: #267C78;
+}
+
+.hotel-info p {
+    color: #777F7C;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Image presentation */
+
+.hotel-card img {
+    background: #E9DFCA;
+}
+
+/* Keyboard accessibility */
+
+.hotel-card:focus-within {
+    outline: 2px solid #267C78;
+    outline-offset: 4px;
+}
+/* =================================
+   PREMIUM DESTINATION CARDS
+================================= */
+
+.destination-card {
+    min-height: 290px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    cursor: pointer;
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+/* Dark gradient overlay */
+
+.destination-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(
+        to top,
+        rgba(10, 32, 39, 0.88) 0%,
+        rgba(10, 32, 39, 0.30) 55%,
+        rgba(10, 32, 39, 0.02) 100%
+    );
+
+    transition: background 0.45s ease;
+}
+
+/* Hover effect */
+
+.destination-card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 20px 40px rgba(16, 43, 53, 0.22);
+}
+
+/* Destination image zoom */
+
+.destination-card {
+    background-size: 100%;
+    transition:
+        background-size 0.7s ease,
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+.destination-card:hover {
+    background-size: 112%;
+}
+
+/* Destination text */
+
+.destination-card span {
+    position: relative;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #E9DFCA;
+    margin-bottom: 9px;
+    transition: transform 0.4s ease;
+}
+
+.destination-card h3 {
+    position: relative;
+    font-family: Georgia, serif;
+    font-size: 34px;
+    font-weight: 400;
+    margin: 0;
+    transition:
+        transform 0.4s ease,
+        letter-spacing 0.4s ease;
+}
+
+.destination-card:hover h3 {
+    transform: translateX(6px);
+    letter-spacing: 0.5px;
+}
+
+.destination-card:hover span {
+    transform: translateX(6px);
+}
+
+/* Keyboard accessibility */
+
+.destination-card:focus-visible {
+    outline: 3px solid #267C78;
+    outline-offset: 4px;
+}
+
+/* Respect reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    .destination-card,
+    .destination-card::before,
+    .destination-card span,
+    .destination-card h3 {
+        transition: none !important;
+    }
+}
+/* EXPLORE THE REGION ANIMATIONS */
+
+.destinations-section .section-heading {
+    animation: fadeUp 0.9s ease both;
+}
+
+.destination-card:nth-child(1) {
+    animation: fadeUp 0.9s ease both;
+    animation-delay: 0.1s;
+}
+
+.destination-card:nth-child(2) {
+    animation: fadeUp 0.9s ease both;
+    animation-delay: 0.25s;
+}
+
+.destination-card:nth-child(3) {
+    animation: fadeUp 0.9s ease both;
+    animation-delay: 0.4s;
+}
+/* SEARCH VALIDATION MESSAGES */
+
+.search-message {
+    min-height: 18px;
+    margin-top: 14px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.search-message.error {
+    color: #B64040;
+}
+
+.search-message.success {
+    color: #267C78;
+}

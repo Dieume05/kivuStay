@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Root element -->
+    <xs:element name="hotels">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="hotel" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="location" type="xs:string"/>
+                            <xs:element name="description" type="xs:string"/>
+                            <xs:element name="imageUrl" type="xs:string"/>
+
+                            <!-- Repeated amenities -->
+                            <xs:element name="amenities">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="amenity"
+                                                    type="xs:string"
+                                                    minOccurs="0"
+                                                    maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                            <!-- Hotel rooms -->
+                            <xs:element name="rooms">
+                                <xs:complexType>
+                                    <xs:sequence>
+
+                                        <xs:element name="room"
+                                                    minOccurs="0"
+                                                    maxOccurs="unbounded">
+
+                                            <xs:complexType>
+                                                <xs:sequence>
+
+                                                    <xs:element name="pricePerNight"
+                                                                type="xs:decimal"/>
+
+                                                    <xs:element name="bookings">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+
+                                                                <xs:element name="booking"
+                                                                            minOccurs="0"
+                                                                            maxOccurs="unbounded">
+
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+
+                                                                            <xs:element name="checkIn"
+                                                                                        type="xs:date"/>
+
+                                                                            <xs:element name="checkOut"
+                                                                                        type="xs:date"/>
+
+                                                                            <xs:element name="numberOfGuests"
+                                                                                        type="xs:positiveInteger"/>
+
+                                                                            <xs:element name="status"
+                                                                                        type="xs:string"/>
+
+                                                                        </xs:sequence>
+
+                                                                        <xs:attribute name="id"
+                                                                                     type="xs:positiveInteger"
+                                                                                     use="required"/>
+                                                                    </xs:complexType>
+
+                                                                </xs:element>
+
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+
+                                                </xs:sequence>
+
+                                                <xs:attribute name="id"
+                                                             type="xs:positiveInteger"
+                                                             use="required"/>
+
+                                                <xs:attribute name="number"
+                                                             type="xs:string"
+                                                             use="required"/>
+
+                                                <xs:attribute name="type"
+                                                             type="RoomType"
+                                                             use="required"/>
+
+                                                <xs:attribute name="capacity"
+                                                             type="RoomCapacity"
+                                                             use="required"/>
+
+                                                <xs:attribute name="status"
+                                                             type="xs:string"
+                                                             use="required"/>
+
+                                            </xs:complexType>
+
+                                        </xs:element>
+
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+
+                        </xs:sequence>
+
+                        <!-- Hotel attributes -->
+                        <xs:attribute name="id"
+                                     type="xs:positiveInteger"
+                                     use="required"/>
+
+                        <xs:attribute name="rating"
+                                     type="HotelRating"
+                                     use="required"/>
+
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+
+            <xs:attribute name="generatedBy" type="xs:string"/>
+            <xs:attribute name="version" type="xs:string"/>
+
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Rating must be between 1 and 5 -->
+    <xs:simpleType name="HotelRating">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="1.0"/>
+            <xs:maxInclusive value="5.0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Capacity must be between 1 and 20 -->
+    <xs:simpleType name="RoomCapacity">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Only supported room types -->
+    <xs:simpleType name="RoomType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="STANDARD"/>
+            <xs:enumeration value="DELUXE"/>
+            <xs:enumeration value="FAMILY"/>
+            <xs:enumeration value="SUITE"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
